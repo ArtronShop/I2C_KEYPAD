@@ -4,7 +4,7 @@ I2C Keypad คือ โมดูลที่นำเอา Keypad มาเช
 ## ภาพการเชื่อมต่อ I2C Keypad กับ Arduino 
 ![Pin Functions](doc/arduinodiagram.jpg)
 ## ภาพการเชื่อมต่อ I2C Keypad กับ ESPion32
-![Pin Functions](doc/esoino32diagram.jpg)
+![Pin Functions](doc/espino32diagram.jpg)
 ## I2C Address
 - โดย Default Address ของ I2C KEYPAD คือ 0x20
 - สามารถเปลี่ยน Address ได้จากการบัคกรีเอา R ที่ A0,A1,A2 ที่ด้านหลังของบอร์ดออก 
