@@ -33,17 +33,16 @@ void I2CKEYPAD::on(KEYPAD_EVENT event, KeypadEventCallback callback) {
 }
 
 void I2CKEYPAD::scand() {
-	char row = 0, col = 0;
-	
 	if (millis() - kp_pv >= kp_interval) {
+		char row = 0, col = 0;
+		
 		// row scanning
 		Wire.beginTransmission(addr_);   
 		Wire.write(0x0F);               
 		Wire.endTransmission();
 		Wire.requestFrom(addr_, 1);
 		while(Wire.available()) {
-			char recv = Wire.read();
-			switch(recv) {
+			switch(Wire.read()) {
 				case 0x0E : row = 1; break;
 				case 0x0D : row = 2; break;
 				case 0x0B : row = 3; break;
@@ -58,8 +57,7 @@ void I2CKEYPAD::scand() {
 		Wire.endTransmission();
 		Wire.requestFrom(addr_, 1);
 		while(Wire.available()) {
-			char recv = 0x00FF&Wire.read();
-			switch(recv) {
+			switch(Wire.read()) {
 				case 0xE0 : col = 1; break;
 				case 0xD0 : col = 2; break;
 				case 0xB0 : col = 3; break;
